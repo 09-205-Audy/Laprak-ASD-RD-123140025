@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Input n: ";
+    cin >> n;
+
+    int arr[n];  
+    int *ptr = arr;   // pointer menunjuk ke array
+
+    // Input elemen array
+    cout << "Masukkan elemen array: ";
+    for (int i = 0; i < n; i++) {
+        cin >> *(ptr + i);   // isi array pakai pointer
+    }
+
+    // Tampilkan array sebelum dibalik
+    cout << "Array sebelum dibalik: ";
+    for (int i = 0; i < n; i++) {
+        cout << *(ptr + i) << " ";
+    }
+    cout << endl;
+
+    // Proses tukar elemen dengan pointer (membalik array)
+    for (int i = 0; i < n / 2; i++) {
+        int temp = *(ptr + i);                // simpan elemen ke-i
+        *(ptr + i) = *(ptr + (n - 1 - i));    // tukar dengan elemen ujung
+        *(ptr + (n - 1 - i)) = temp;          // masukkan kembali nilai
+    }
+
+    // Tampilkan array sesudah dibalik
+    cout << "Array sesudah dibalik: ";
+    for (int i = 0; i < n; i++) {
+        cout << *(ptr + i) << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
