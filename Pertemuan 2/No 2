@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+// *x = jumlah kuadrat dari 1 sampai y
+// *z = hasil perkalian bilangan ganjil sampai (2*y - 1)
+void operasiMatematika(long long *x, int y, long long *z) {
+    *x = 0;   // inisialisasi jumlah kuadrat
+    *z = 1;   // inisialisasi hasil perkalian ganjil
+
+    cout << "*x = ";
+    for (int n = 1; n <= y; n++) {
+        *x += (n * n);         // hitung penjumlahan kuadrat
+        cout << n << "^2";    
+        if (n < y) cout << " + ";
+    }
+    cout << " = " << *x << endl;
+
+    cout << "*z = ";
+    for (int n = 1; n <= y; n++) {
+        *z *= (2 * n - 1);     // hitung perkalian bilangan ganjil
+        cout << (2 * n - 1);  
+        if (n < y) cout << " * ";
+    }
+    cout << " = " << *z << endl;
+}
+
+int main() {
+    int y;          // variabel input dari user
+    long long x, z; // variabel hasil perhitungan
+
+    cout << "Masukkan nilai y: ";
+    cin >> y;       
+
+    cout << "\nHasil perhitungan dengan y = " << y << endl;
+    // panggil fungsi dengan pointer agar hasil bisa dikembalikan
+    operasiMatematika(&x, y, &z);
+
+    return 0;   
+}
