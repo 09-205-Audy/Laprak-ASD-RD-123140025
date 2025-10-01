@@ -1,0 +1,33 @@
+#include <iostream>  
+using namespace std;
+
+//   *x → pointer yang menyimpan hasil penjumlahan
+//   y  → batas atas bilangan yang dihitung
+void jumlahGanjil(int *x, int y) {
+    *x = 0;  
+
+    // Perulangan dari 1 sampai y
+    for (int i = 1; i <= y; i++) {
+        // Jika i adalah bilangan ganjil 
+        if (i % 2 != 0) {
+            *x += i;   // tambahkan nilai i ke hasil 
+        }
+    }
+}
+
+int main() {
+    int y, hasil;  // variabel y untuk input user, hasil untuk menampung output
+
+    cout << "Masukkan nilai y: ";  // meminta user memasukkan nilai batas atas
+    cin >> y;                      // membaca input dari keyboard dan simpan ke variabel y
+
+    // Memanggil prosedur jumlahGanjil
+    // alamat variabel hasil (&hasil) dikirim agar nilainya bisa diubah dalam prosedur
+    jumlahGanjil(&hasil, y);
+
+    // Menampilkan hasil akhir penjumlahan bilangan ganjil
+    cout << "Jumlah bilangan ganjil dari 1 sampai " << y 
+         << " = " << hasil << endl;
+
+    return 0;  
+}
